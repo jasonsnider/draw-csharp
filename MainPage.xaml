@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Draw.MainPage">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0" Padding="10" BackgroundColor="AliceBlue">
+            <Button
+                x:Name="RectangleBtn"
+                Text="Rectangle" 
+                SemanticProperties.Hint="Tells the app to draw a rectangle"
+                Clicked="DrawRectangle"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Button
+                x:Name="EllipseBtn"
+                Text="Ellipse" 
+                SemanticProperties.Hint="Tells the app to draw an ellipse"
+                Clicked="DrawEllipse"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Button
+                x:Name="CircleBtn"
+                Text="Circle" 
+                SemanticProperties.Hint="Tells the app to draw a circle"
+                Clicked="DrawCircle"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Button
+                x:Name="TriangleBtn"
+                Text="Triangle"
+                SemanticProperties.Hint="Tells the app to draw a triangle"
+                Clicked="DrawTriangle"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Button
+                x:Name="LineBtn"
+                Text="Line"
+                SemanticProperties.Hint="Tells the app to draw a line"
+                Clicked="DrawLine"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Button
+                x:Name="DragLineBtn"
+                Text="DragLine"
+                SemanticProperties.Hint="Tells the app to drag a line"
+                Clicked="DrawDragLine"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Button
+                x:Name="UndoBtn"
+                Text="Undo"
+                SemanticProperties.Hint="Tells the app to remove the last shape"
+                Clicked="UndoLastShape"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Label x:Name="StartLabel" Text="X: Y:" TextColor="black" Margin="0,0,0,10" />
+            <Label x:Name="DragLabel" Text="X: Y:" TextColor="black" Margin="0,0,0,10" />
+            <Label x:Name="EndLabel" Text="X: Y:" TextColor="black" Margin="0,0,0,10" />
+            <Label x:Name="ShapeLabel" Text="Shape" TextColor="black" Margin="0,0,0,10" />
+
+            <Button
+                x:Name="ClearCanvasBtn"
+                Text="Clear Canvas"
+                Clicked="ClearCanvas"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,10" />
+
+            <Label Text="Stroke Size" TextColor="black" />
+            <Frame x:Name="StrokeSizeFrame" BorderColor="Black" CornerRadius="5" Padding="0" BackgroundColor="White">
+                <Entry x:Name="StrokeSize"
+                    Text="1"
+                    TextChanged="OnStrokeSizeChanged"
+                    Completed="OnStrokeSizeChanged"
+                    TextColor="black" />
+            </Frame>
+
+
+            <Label Text="Stroke Color" TextColor="black" />
+            <Frame  x:Name="StrokeColorFrame" BorderColor="Black" CornerRadius="5" Padding="0" BackgroundColor="White">
+                <Entry x:Name="StrokeColor"
+                    Text="#FFFFFF"
+                    TextChanged="OnStrokeColorChanged"
+                    Completed="OnStrokeColorChanged"
+                    TextColor="black" />
+            </Frame>
+
+            <Label Text="Fill Color" TextColor="black" />
+            <Frame x:Name="FillColorFrame" BorderColor="Black" CornerRadius="5" Padding="0" BackgroundColor="White">
+                <Entry x:Name="FillColor"
+                    Text="#000000"
+                    TextChanged="OnFillColorChanged"
+                    Completed="OnFillColorChanged"
+                    TextColor="black" />
+            </Frame>
+
+        </StackLayout>
+
+        <GraphicsView x:Name="Canvas" Grid.Column="1" />
+    </Grid>
+
+</ContentPage>
